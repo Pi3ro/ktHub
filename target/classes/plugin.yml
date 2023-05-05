@@ -1,0 +1,6 @@
+main: me.pi3ro.hub.Hub
+name: ktHub
+version: 1.0-STABLE
+author: Pi3ro
+commands:
+  kthub:
