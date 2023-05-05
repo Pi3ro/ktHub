@@ -2,8 +2,8 @@ package me.pi3ro.hub.menu
 
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
-import me.pi3ro.hub.utils.menu.Button
-import me.pi3ro.hub.utils.menu.Menu
+import me.pi3ro.plib.menu.Button
+import me.pi3ro.plib.menu.Menu
 import org.bukkit.DyeColor
 import org.bukkit.Material
 import org.bukkit.entity.Player

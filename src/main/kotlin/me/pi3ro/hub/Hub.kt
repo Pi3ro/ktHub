@@ -7,8 +7,8 @@ import me.pi3ro.hub.listeners.PlayerListener
 import me.pi3ro.hub.providers.ScoreboardProvider
 import me.pi3ro.hub.providers.TablistProvider
 import me.pi3ro.hub.utils.CC
-import me.pi3ro.hub.utils.scoreboard.Scoreboard
-import me.pi3ro.hub.utils.tab.Tablist
+import me.pi3ro.plib.scoreboard.Scoreboard
+import me.pi3ro.plib.tab.Tablist
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 

@@ -1,7 +1,7 @@
 package me.pi3ro.hub.providers
 
-import me.pi3ro.hub.utils.tab.adapter.TabAdapter
-import me.pi3ro.hub.utils.tab.entry.TabEntry
+import me.pi3ro.plib.tab.adapter.TabAdapter
+import me.pi3ro.plib.tab.entry.TabEntry
 import org.bukkit.entity.Player
 
 /**

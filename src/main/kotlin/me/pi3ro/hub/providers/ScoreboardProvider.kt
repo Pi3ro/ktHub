@@ -1,8 +1,8 @@
 package me.pi3ro.hub.providers
 
 import me.pi3ro.hub.utils.CC
-import me.pi3ro.hub.utils.scoreboard.ScoreboardAdapter
-import me.pi3ro.hub.utils.scoreboard.ScoreboardStyle
+import me.pi3ro.plib.scoreboard.ScoreboardAdapter
+import me.pi3ro.plib.scoreboard.ScoreboardStyle
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
