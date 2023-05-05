@@ -101,6 +101,11 @@ class ItemBuilder {
         return this
     }
 
+    fun setDurability(int: Int): ItemBuilder{
+        itemStack.durability = int.toShort()
+        return this
+    }
+
     fun setLore(list: List<String>): ItemBuilder {
         if (list.isEmpty()) {
             return this

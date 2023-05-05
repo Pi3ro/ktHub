@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="viaversion-repo" />
+      <option name="name" value="viaversion-repo" />
+      <option name="url" value="https://repo.viaversion.com" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="mavenCentral" />
       <option name="name" value="mavenCentral" />
       <option name="url" value="https://repo1.maven.org/maven2/" />

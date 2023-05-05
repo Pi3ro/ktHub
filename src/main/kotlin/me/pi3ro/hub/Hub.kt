@@ -5,8 +5,10 @@ import me.pi3ro.hub.hotbar.Hotbar
 import me.pi3ro.hub.hotbar.HotbarListener
 import me.pi3ro.hub.listeners.PlayerListener
 import me.pi3ro.hub.providers.ScoreboardProvider
+import me.pi3ro.hub.providers.TablistProvider
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.scoreboard.Scoreboard
+import me.pi3ro.hub.utils.tab.Tablist
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -33,6 +35,9 @@ class Hub : JavaPlugin() {
 
         scoreboard = Scoreboard(this, ScoreboardProvider())
         scoreboard!!.ticks = 1
+
+        Tablist(TablistProvider(), this, 20)
+
         getCommand("kthub").executor = HubCommand()
         server.pluginManager.registerEvents(Hotbar(), this)
         server.pluginManager.registerEvents(HotbarListener(), this)
