@@ -21,13 +21,12 @@ class Hotbar : Listener {
         /* Server Selector */
         val selector = ItemBuilder(Material.WATCH)
             .setDisplayName(CC.translate("&bServer Selector &7(Right Click)"))
-            .setLore("&7Opens the Server Selector menu.")
+            .setLore(CC.translate("&7Opens the Server Selector menu."))
             .build()
 
         /* Ender Butt */
         val enderButt = ItemBuilder(Material.ENDER_PEARL)
             .setDisplayName(CC.translate("&bEnder Butt &7(Right Click)"))
-            .setLore("&7")
             .build()
 
         val inv = player.inventory

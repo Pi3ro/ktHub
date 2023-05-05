@@ -1,13 +1,25 @@
 package me.pi3ro.hub.listeners
 
 import me.pi3ro.hub.Hub
+import me.pi3ro.hub.utils.CC
+import org.bukkit.GameMode
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
+import org.bukkit.event.block.BlockPhysicsEvent
+import org.bukkit.event.block.BlockPlaceEvent
+import org.bukkit.event.entity.CreatureSpawnEvent
 import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.event.entity.EntitySpawnEvent
 import org.bukkit.event.entity.FoodLevelChangeEvent
+import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.event.player.PlayerMoveEvent
+import org.bukkit.event.player.PlayerPickupItemEvent
+import org.bukkit.event.player.PlayerQuitEvent
+import org.bukkit.event.weather.WeatherChangeEvent
 
 /**
  * Created by: Pi3ro
@@ -19,10 +31,32 @@ class PlayerListener : Listener {
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent){
         val player: Player = event.player
+        val messages = listOf(
+            "&7&m-----------------------------------------------------",
+            " ",
+            "&fWelcome to the &3Server Network&f!",
+            " ",
+            "&f● &bWebsite: &fserver.gg",
+            "&f● &bStore: &fserver.gg/store",
+            "&f● &bTeamSpeak: &fts.server.gg",
+            "&f● &bDiscord: &fserver.gg/discord",
+            "&f● &bTwitter: &ftwitter.com/server",
+            " ",
+            "&7&m-----------------------------------------------------")
+        event.joinMessage = null
+        player.gameMode = GameMode.SURVIVAL
         player.health = 20.0
         player.foodLevel = 20
-        //player.inventory.clear()
         toSpawn(player)
+        messages.forEach { player.sendMessage(CC.translate(it)) }
+        player.updateInventory()
+    }
+
+    @EventHandler
+    fun onPlayerQuit(event: PlayerQuitEvent){
+        val player:Player = event.player
+        event.quitMessage = null
+        player.inventory.clear()
     }
 
     @EventHandler
@@ -38,8 +72,64 @@ class PlayerListener : Listener {
     }
 
     @EventHandler
-    fun onBreak(event: BlockBreakEvent){
+    fun onWeather(event: WeatherChangeEvent){
         event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onDrop(event: PlayerDropItemEvent){
+        val player: Player = event.player
+        if (!player.isOp) event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onPickup(event: PlayerPickupItemEvent){
+        val player: Player = event.player
+        if (!player.isOp) event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onBreak(event: BlockBreakEvent){
+        val player: Player = event.player
+        if (!player.isOp) event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onPlace(event: BlockPlaceEvent){
+        val player: Player = event.player
+        if (!player.isOp) event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onPhysicsBlocks(event: BlockPhysicsEvent){
+        event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onEntitySpawn(event: EntitySpawnEvent){
+        event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onMobSpawn(event: CreatureSpawnEvent){
+        event.isCancelled = true
+    }
+
+    @EventHandler
+    fun onClickInventory(event: InventoryClickEvent){
+        val player: Player = event.whoClicked as Player
+        if (!player.isOp){
+            event.isCancelled = true
+            player.updateInventory()
+        }
+    }
+
+    @EventHandler
+    fun onPlayerMove(event: PlayerMoveEvent){
+        val player: Player = event.player
+        if (player.location.y < 0 && event.to.y != event.from.y){
+            toSpawn(player)
+        }
     }
 
     fun toSpawn(player: Player){
