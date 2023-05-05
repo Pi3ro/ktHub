@@ -2,6 +2,7 @@ package me.pi3ro.hub.listeners
 
 import me.pi3ro.hub.Hub
 import me.pi3ro.hub.utils.CC
+import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -31,6 +32,15 @@ class PlayerListener : Listener {
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent){
         val player: Player = event.player
+
+        for (toHide: Player in Bukkit.getServer().onlinePlayers) {
+            for (player: Player in Bukkit.getServer().onlinePlayers) {
+                if (player != toHide) {
+                    player.hidePlayer(toHide)
+                }
+            }
+        }
+
         val messages = listOf(
             "&7&m-----------------------------------------------------",
             " ",
@@ -118,10 +128,8 @@ class PlayerListener : Listener {
     @EventHandler
     fun onClickInventory(event: InventoryClickEvent){
         val player: Player = event.whoClicked as Player
-        if (!player.isOp){
-            event.isCancelled = true
-            player.updateInventory()
-        }
+        event.isCancelled = true
+        player.updateInventory()
     }
 
     @EventHandler

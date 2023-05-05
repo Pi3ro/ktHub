@@ -39,6 +39,7 @@ class Hub : JavaPlugin() {
         Tablist(TablistProvider(), this, 20)
 
         getCommand("kthub").executor = HubCommand()
+        getCommand("kthub").permission = "kthub.admin"
         server.pluginManager.registerEvents(Hotbar(), this)
         server.pluginManager.registerEvents(HotbarListener(), this)
         server.pluginManager.registerEvents(PlayerListener(), this)
