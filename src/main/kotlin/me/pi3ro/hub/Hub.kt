@@ -4,7 +4,9 @@ import me.pi3ro.hub.commands.HubCommand
 import me.pi3ro.hub.hotbar.Hotbar
 import me.pi3ro.hub.hotbar.HotbarListener
 import me.pi3ro.hub.listeners.PlayerListener
+import me.pi3ro.hub.providers.ScoreboardProvider
 import me.pi3ro.hub.utils.CC
+import me.pi3ro.hub.utils.scoreboard.Scoreboard
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -29,6 +31,8 @@ class Hub : JavaPlugin() {
         log("&bVersion: &f" + description.version)
         log("===================================")
 
+        scoreboard = Scoreboard(this, ScoreboardProvider())
+        scoreboard!!.ticks = 1
         getCommand("kthub").executor = HubCommand()
         server.pluginManager.registerEvents(Hotbar(), this)
         server.pluginManager.registerEvents(HotbarListener(), this)
@@ -45,6 +49,7 @@ class Hub : JavaPlugin() {
 
     companion object {
         @JvmStatic
+        var scoreboard: Scoreboard?= null
         var instance: Hub? = null
             private set
     }

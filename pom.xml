@@ -6,13 +6,14 @@
 
     <artifactId>ktHub</artifactId>
     <groupId>me.pi3ro</groupId>
-    <version>1.0-STABLE</version>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <kotlin.version>1.4.21-2</kotlin.version>
     </properties>
 
-    <name>consoleApp</name>
+    <name>ktHub</name>
+
     <repositories>
         <repository>
             <id>spigot-repo</id>
@@ -42,6 +43,11 @@
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
         </dependency>
     </dependencies>
 
@@ -90,8 +96,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <source>6</source>
-                    <target>6</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
