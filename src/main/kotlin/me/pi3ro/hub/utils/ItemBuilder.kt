@@ -3,6 +3,7 @@ package me.pi3ro.hub.utils
 import org.bukkit.Color
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
+import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 import org.bukkit.inventory.meta.LeatherArmorMeta
@@ -124,6 +125,13 @@ class ItemBuilder {
     fun setUnbreakable(): ItemBuilder{
         val itemMeta = itemStack.itemMeta
         itemMeta.spigot().isUnbreakable = true
+        itemStack.itemMeta = itemMeta
+        return this
+    }
+
+    fun clearFlags(): ItemBuilder{
+        val itemMeta = itemStack.itemMeta
+        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_DESTROYS, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_PLACED_ON)
         itemStack.itemMeta = itemMeta
         return this
     }

@@ -1,15 +1,14 @@
 package me.pi3ro.hub.hotbar
 
+import me.pi3ro.hub.menu.CosmeticsMenu
 import me.pi3ro.hub.menu.ServerSelectorMenu
 import me.pi3ro.hub.utils.CC
 import org.bukkit.Material
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.Action
 import org.bukkit.event.player.PlayerInteractEvent
-import org.bukkit.inventory.ItemStack
 
 /**
  * Created by: Pi3ro
@@ -34,9 +33,14 @@ class HotbarListener : Listener {
                 player.velocity = player.location.direction.normalize().multiply(2.5)
                 player.updateInventory()
             }
-            Material.WATCH -> {
+            Material.COMPASS -> {
                 if (item.hasItemMeta() && item.itemMeta.hasDisplayName() && item.itemMeta.displayName.equals(CC.translate("&bServer Selector &7(Right Click)"), ignoreCase = true)) {
                     ServerSelectorMenu().openMenu(player)
+                }
+            }
+            Material.NETHER_STAR -> {
+                if (item.hasItemMeta() && item.itemMeta.hasDisplayName() && item.itemMeta.displayName.equals(CC.translate("&bCosmetics &7(Right Click)"), ignoreCase = true)) {
+                    CosmeticsMenu().openMenu(player)
                 }
             }
             else -> return

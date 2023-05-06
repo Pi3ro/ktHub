@@ -18,10 +18,17 @@ class Hotbar : Listener {
     @EventHandler
     fun setHotbar(event: PlayerJoinEvent){
         val player: Player = event.player
+        player.inventory.clear()
+
         /* Server Selector */
-        val selector = ItemBuilder(Material.WATCH)
+        val selector = ItemBuilder(Material.COMPASS)
             .setDisplayName(CC.translate("&bServer Selector &7(Right Click)"))
             .setLore(CC.translate("&7Opens the Server Selector menu."))
+            .build()
+
+        /* Cosmetics */
+        val cosmetics = ItemBuilder(Material.NETHER_STAR)
+            .setDisplayName(CC.translate("&bCosmetics &7(Right Click)"))
             .build()
 
         /* Ender Butt */
@@ -30,7 +37,8 @@ class Hotbar : Listener {
             .build()
 
         val inv = player.inventory
-        inv.setItem(3, selector)
-        inv.setItem(5, enderButt)
+        inv.setItem(0, selector)
+        inv.setItem(4, cosmetics)
+        inv.setItem(8, enderButt)
     }
 }
