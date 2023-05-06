@@ -7,6 +7,7 @@ import me.pi3ro.hub.listeners.PlayerListener
 import me.pi3ro.hub.providers.ScoreboardProvider
 import me.pi3ro.hub.providers.TablistProvider
 import me.pi3ro.hub.utils.CC
+import me.pi3ro.hub.utils.menu.MenuListener
 import me.pi3ro.plib.scoreboard.Scoreboard
 import me.pi3ro.plib.tab.Tablist
 import org.bukkit.plugin.java.JavaPlugin
@@ -20,7 +21,6 @@ import java.io.File
 class Hub : JavaPlugin() {
 
     override fun onEnable() {
-        instance = this
         val config = File(dataFolder, "config.yml")
         if (!config.exists()){
             getConfig().options().copyDefaults(true)
@@ -43,10 +43,10 @@ class Hub : JavaPlugin() {
         server.pluginManager.registerEvents(Hotbar(), this)
         server.pluginManager.registerEvents(HotbarListener(), this)
         server.pluginManager.registerEvents(PlayerListener(), this)
+        server.pluginManager.registerEvents(MenuListener(), this)
     }
 
     override fun onDisable() {
-        instance = null
     }
 
     fun log(msg: String){
@@ -56,7 +56,8 @@ class Hub : JavaPlugin() {
     companion object {
         @JvmStatic
         var scoreboard: Scoreboard?= null
-        var instance: Hub? = null
-            private set
+        fun getInstance() : Hub {
+            return getPlugin(Hub::class.java)
+        }
     }
 }

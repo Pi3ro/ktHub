@@ -2,8 +2,8 @@ package me.pi3ro.hub.menu
 
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
-import me.pi3ro.plib.menu.Button
-import me.pi3ro.plib.menu.Menu
+import me.pi3ro.hub.utils.menu.Button
+import me.pi3ro.hub.utils.menu.Menu
 import org.bukkit.DyeColor
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -53,7 +53,8 @@ class ServerSelectorMenu : Menu() {
         }
 
         override fun clicked(player: Player?, clickType: ClickType?) {
-
+            player?.closeInventory()
+            player?.sendMessage(CC.translate("&aPractice"))
         }
     }
 
@@ -72,8 +73,7 @@ class ServerSelectorMenu : Menu() {
                 .build()
         }
 
-        override fun clicked(player: Player?, clickType: ClickType?) {
-
+        override fun clicked(player: Player?, slot: Int, clickType: ClickType?, hotbarSlot: Int) {
         }
     }
 

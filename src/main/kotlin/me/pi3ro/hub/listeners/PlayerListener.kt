@@ -12,7 +12,6 @@ import org.bukkit.event.block.BlockPhysicsEvent
 import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.entity.CreatureSpawnEvent
 import org.bukkit.event.entity.EntityDamageEvent
-import org.bukkit.event.entity.EntitySpawnEvent
 import org.bukkit.event.entity.FoodLevelChangeEvent
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerDropItemEvent
@@ -89,34 +88,29 @@ class PlayerListener : Listener {
     @EventHandler
     fun onDrop(event: PlayerDropItemEvent){
         val player: Player = event.player
-        if (!player.isOp) event.isCancelled = true
+        event.isCancelled = !(player.isOp && player.gameMode == GameMode.CREATIVE)
     }
 
     @EventHandler
     fun onPickup(event: PlayerPickupItemEvent){
         val player: Player = event.player
-        if (!player.isOp) event.isCancelled = true
+        event.isCancelled = !(player.isOp && player.gameMode == GameMode.CREATIVE)
     }
 
     @EventHandler
     fun onBreak(event: BlockBreakEvent){
         val player: Player = event.player
-        if (!player.isOp) event.isCancelled = true
+        event.isCancelled = !(player.isOp && player.gameMode == GameMode.CREATIVE)
     }
 
     @EventHandler
     fun onPlace(event: BlockPlaceEvent){
         val player: Player = event.player
-        if (!player.isOp) event.isCancelled = true
+        event.isCancelled = !(player.isOp && player.gameMode == GameMode.CREATIVE)
     }
 
     @EventHandler
     fun onPhysicsBlocks(event: BlockPhysicsEvent){
-        event.isCancelled = true
-    }
-
-    @EventHandler
-    fun onEntitySpawn(event: EntitySpawnEvent){
         event.isCancelled = true
     }
 
@@ -127,9 +121,7 @@ class PlayerListener : Listener {
 
     @EventHandler
     fun onClickInventory(event: InventoryClickEvent){
-        val player: Player = event.whoClicked as Player
-        event.isCancelled = true
-        player.updateInventory()
+        if (event.slot < 9) event.isCancelled = true
     }
 
     @EventHandler
@@ -142,7 +134,7 @@ class PlayerListener : Listener {
 
     fun toSpawn(player: Player){
         val location = player.location
-        val config = Hub.instance?.config
+        val config = Hub.getInstance().config
         val x = config?.getDouble("SPAWN.X")
         val y = config?.getDouble("SPAWN.Y")
         val z = config?.getDouble("SPAWN.Z")

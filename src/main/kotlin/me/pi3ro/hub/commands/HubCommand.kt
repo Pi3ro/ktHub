@@ -2,7 +2,6 @@ package me.pi3ro.hub.commands
 
 import me.pi3ro.hub.Hub
 import me.pi3ro.hub.utils.CC
-import org.bukkit.Location
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -23,14 +22,14 @@ class HubCommand : CommandExecutor {
             }
             args.size == 1 && args[0].equals("setspawn", ignoreCase = true) -> {
                 if (sender is Player) {
-                    val config = Hub.instance?.config
+                    val config = Hub.getInstance().config
                     val playerLocation = sender.location
                     config?.set("SPAWN.X", playerLocation.x)
                     config?.set("SPAWN.Y", playerLocation.y)
                     config?.set("SPAWN.Z", playerLocation.z)
                     config?.set("SPAWN.YAW", playerLocation.yaw)
                     config?.set("SPAWN.PITCH", playerLocation.pitch)
-                    Hub.instance?.saveConfig()
+                    Hub.getInstance().saveConfig()
                     sender.sendMessage(CC.translate("&b[Hub] &aSuccessfully setting up."))
                 } else {
                     sender.sendMessage(CC.translate("&cThis command can only be executed by a player"))

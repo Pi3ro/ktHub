@@ -10,6 +10,6 @@ import me.pi3ro.hub.Hub
 object Utils {
     @JvmStatic
     fun run(runnable: Runnable){
-        Hub.instance?.server?.scheduler?.runTask(Hub.instance, runnable)
+        Hub.getInstance().server?.scheduler?.runTask(Hub.getInstance(), runnable)
     }
 }
