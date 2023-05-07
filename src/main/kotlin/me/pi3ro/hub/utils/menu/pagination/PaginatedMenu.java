@@ -1,14 +1,19 @@
 package me.pi3ro.hub.utils.menu.pagination;
 
+import me.pi3ro.hub.utils.CC;
 import me.pi3ro.hub.utils.menu.Button;
 import me.pi3ro.hub.utils.menu.Menu;
 import lombok.Getter;
+import org.bukkit.DyeColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class PaginatedMenu extends Menu {
+
+    private final Button BLACK_PANE = Button.placeholder(Material.STAINED_GLASS_PANE, DyeColor.BLACK.getData(), CC.INSTANCE.translate("&7"));
 
     @Getter
     private int page = 1;
@@ -19,7 +24,7 @@ public abstract class PaginatedMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return getPrePaginatedTitle(player) + " &7(Page " + page + ")";
+        return getPrePaginatedTitle(player) + " - " + page + "/" + page;
     }
 
     /**
@@ -72,6 +77,10 @@ public abstract class PaginatedMenu extends Menu {
             for (Map.Entry<Integer, Button> gent : global.entrySet()) {
                 buttons.put(gent.getKey(), gent.getValue());
             }
+        }
+
+        for (int i = 0; i < 9; i++){
+            buttons.putIfAbsent(i, BLACK_PANE);
         }
 
         return buttons;

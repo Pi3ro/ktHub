@@ -19,19 +19,15 @@ public class PageButton extends Button {
 
     @Override
     public ItemStack getButtonItem(Player player) {
-        ItemStack itemStack = new ItemStack(Material.ARROW);
+        ItemStack itemStack = new ItemStack(Material.CARPET);
+        itemStack.setDurability((short) 7);
         ItemMeta itemMeta = itemStack.getItemMeta();
 
         if (this.hasNext(player)) {
-            itemMeta.setDisplayName(this.mod > 0 ? ChatColor.GREEN + "Next page" : ChatColor.RED + "Previous page");
+            itemMeta.setDisplayName(this.mod > 0 ? ChatColor.GRAY + "First Page" : ChatColor.GRAY + "Last page");
         } else {
-            itemMeta.setDisplayName(ChatColor.GREEN + (this.mod > 0 ? "Last page" : "First page"));
+            itemMeta.setDisplayName(ChatColor.GRAY + (this.mod > 0 ? "Last page" : "First page"));
         }
-
-        itemMeta.setLore(Arrays.asList(
-                ChatColor.WHITE + "Click here to",
-                ChatColor.WHITE + "jump to a page"
-        ));
 
         itemStack.setItemMeta(itemMeta);
 

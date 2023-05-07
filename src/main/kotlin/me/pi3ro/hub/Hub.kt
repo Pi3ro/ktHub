@@ -22,6 +22,7 @@ class Hub : JavaPlugin() {
 
     override fun onEnable() {
         val config = File(dataFolder, "config.yml")
+        val papi = if(server.pluginManager.getPlugin("PlaceholderAPI") != null) "&aEnabled" else "&cDisabled"
         if (!config.exists()){
             getConfig().options().copyDefaults(true)
             saveConfig()
@@ -31,6 +32,7 @@ class Hub : JavaPlugin() {
         log(" ")
         log("&bAuthor: &f" + description.authors)
         log("&bVersion: &f" + description.version)
+        log("&bPlaceholderAPI: $papi")
         log("===================================")
 
         scoreboard = Scoreboard(this, ScoreboardProvider())
@@ -49,7 +51,7 @@ class Hub : JavaPlugin() {
     override fun onDisable() {
     }
 
-    fun log(msg: String){
+    private fun log(msg: String){
         server.consoleSender.sendMessage(CC.translate(msg))
     }
 

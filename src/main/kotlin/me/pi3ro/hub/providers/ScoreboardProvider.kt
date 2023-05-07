@@ -1,6 +1,7 @@
 package me.pi3ro.hub.providers
 
 import me.pi3ro.hub.utils.CC
+import me.pi3ro.hub.utils.Utils
 import me.pi3ro.plib.scoreboard.ScoreboardAdapter
 import me.pi3ro.plib.scoreboard.ScoreboardStyle
 import org.bukkit.Bukkit
@@ -23,7 +24,7 @@ class ScoreboardProvider : ScoreboardAdapter {
         lines.add("&f" + Bukkit.getOnlinePlayers().size)
         lines.add(" ")
         lines.add("&bRank: ")
-        lines.add("&aDefault")
+        lines.add(Utils.parsePapi(player!!, "%aqua_player_rank%"))
         lines.add(" ")
         lines.add("&bserver.gg")
         lines.add("&7&m-------------------")

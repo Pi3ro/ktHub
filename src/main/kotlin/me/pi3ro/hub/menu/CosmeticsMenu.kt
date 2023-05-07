@@ -1,5 +1,6 @@
 package me.pi3ro.hub.menu
 
+import me.pi3ro.hub.menu.sub.ParticlesMenu
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
 import me.pi3ro.hub.utils.menu.Button
@@ -77,6 +78,8 @@ class CosmeticsMenu : Menu() {
         }
 
         override fun clicked(player: Player?, slot: Int, clickType: ClickType?, hotbarSlot: Int) {
+            player?.closeInventory()
+            ParticlesMenu().openMenu(player)
         }
     }
 
