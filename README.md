@@ -1,5 +1,5 @@
 # ktHub
-Simple Hub Core on Kotlin
+Lunar Network Hub Replica
 
 ![image](https://user-images.githubusercontent.com/79049747/236508862-853b19c6-1bee-40b0-8928-0a5f7052dc58.png)
  
