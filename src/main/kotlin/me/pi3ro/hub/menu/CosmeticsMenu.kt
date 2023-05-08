@@ -1,5 +1,6 @@
 package me.pi3ro.hub.menu
 
+import me.pi3ro.hub.menu.sub.OutfitMenu
 import me.pi3ro.hub.menu.sub.ParticlesMenu
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
@@ -56,7 +57,7 @@ class CosmeticsMenu : Menu() {
 
         override fun clicked(player: Player?, clickType: ClickType?) {
             player?.closeInventory()
-            player?.sendMessage(CC.translate("&aPractice"))
+            OutfitMenu().openMenu(player)
         }
     }
 

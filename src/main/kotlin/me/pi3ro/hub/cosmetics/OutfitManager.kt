@@ -11,9 +11,9 @@ import org.bukkit.inventory.meta.LeatherArmorMeta
  * Project: ktHub
  * Date: 2023-05-07 @ 15:46
  **/
-class OutfitManager {
+object OutfitManager {
 
-    fun createOutfitArmor(material: Material, color: Color, name: String) : ItemStack {
+    private fun createOutfitArmor(material: Material, color: Color, name: String) : ItemStack {
         val itemStack: ItemStack = ItemStack(material)
         val outfitArmorMeta: LeatherArmorMeta = itemStack.itemMeta as LeatherArmorMeta
         outfitArmorMeta.color = color
@@ -21,7 +21,6 @@ class OutfitManager {
         itemStack.itemMeta = outfitArmorMeta
         return itemStack
     }
-
     fun setArmor(player: Player, color: Color, name: String){
         val helmet: ItemStack = createOutfitArmor(Material.LEATHER_HELMET, color, name)
         val chestplate: ItemStack = createOutfitArmor(Material.LEATHER_CHESTPLATE, color, name)
