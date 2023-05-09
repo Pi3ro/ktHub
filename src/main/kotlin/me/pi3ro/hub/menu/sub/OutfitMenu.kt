@@ -2,13 +2,10 @@ package me.pi3ro.hub.menu.sub
 
 import me.pi3ro.hub.cosmetics.OutfitManager
 import me.pi3ro.hub.menu.CosmeticsMenu
-import me.pi3ro.hub.menu.ServerSelectorMenu
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
 import me.pi3ro.hub.utils.menu.Button
-import me.pi3ro.hub.utils.menu.Menu
 import me.pi3ro.hub.utils.menu.pagination.PaginatedMenu
-import org.bukkit.ChatColor
 import org.bukkit.Color
 import org.bukkit.DyeColor
 import org.bukkit.Material
@@ -44,7 +41,7 @@ class OutfitMenu : PaginatedMenu() {
         buttons[getSlot(5,1)] = Purple()
         buttons[getSlot(6,1)] = Gray()
         buttons[getSlot(7,1)] = DarkGray()
-        buttons[getSlot(8,1)] = BackButton()
+        buttons[getSlot(8,2)] = BackButton()
         for (i in 0 until 27){
             buttons.putIfAbsent(i, BLACK_PANE)
         }

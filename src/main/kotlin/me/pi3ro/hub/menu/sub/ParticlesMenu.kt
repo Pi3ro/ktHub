@@ -1,9 +1,6 @@
 package me.pi3ro.hub.menu.sub
 
-import me.pi3ro.hub.Hub
-import me.pi3ro.hub.cosmetics.particles.EnchantmentParticle
 import me.pi3ro.hub.menu.CosmeticsMenu
-import me.pi3ro.hub.menu.ServerSelectorMenu
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
 import me.pi3ro.hub.utils.menu.Button
@@ -41,25 +38,28 @@ class ParticlesMenu : PaginatedMenu() {
         return buttons
     }
 
-    class BasicButton : Button(){
+    class BasicButton : Button() {
         override fun getButtonItem(player: Player?): ItemStack {
-            val lore = mutableListOf<String>()
-            lore.add(" ")
-            lore.add("&eEnchantment particle spawn around your player.")
-            lore.add("&eUnlock this particle with &7Basic &erank.")
-            lore.add(" ")
-            if (player!!.hasPermission("hub.particle.basic"))
-                lore.add("&aApply this effect.")
-            else
-                lore.add("&cYou don't own this effect.")
-            return ItemBuilder(Material.ENCHANTED_BOOK)
-                .setDisplayName("&b&lBasic Particle")
+            val hasPermission = player?.hasPermission("hub.particle.basic") ?: false
+            val displayName = if (hasPermission) "&b&lBasic Particle" else "&c&lBasic Particle"
+            val lore = mutableListOf(
+                " ",
+                "&eEnchantment particle spawn around your player.",
+                "&eUnlock this particle with &7Basic &erank.",
+                " ",
+                if (hasPermission) "&aApply this effect." else "&cYou don't own this effect."
+            )
+            val itemBuilder = ItemBuilder(if (hasPermission) Material.ENCHANTED_BOOK else Material.WOOL)
+                .setDisplayName(displayName)
                 .setLore(lore)
-                .build()
+            if (!hasPermission) {
+                itemBuilder.setDurability(14)
+            }
+            return itemBuilder.build()
         }
 
         override fun clicked(player: Player?, clickType: ClickType?) {
-            player?.sendMessage("&aParticle: Enchantment")
+            player?.sendMessage(CC.translate("&aParticle: Enchantment"))
         }
     }
 

@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d768b53d-a38e-475c-b67f-ef18fea48a74" name="Changes" comment="[+] Particles Buttons">
+    <list default="true" id="d768b53d-a38e-475c-b67f-ef18fea48a74" name="Changes" comment="[+] all outfits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/cosmetics/OutfitManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/cosmetics/OutfitManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/cosmetics/particles/EnchantmentParticle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/cosmetics/particles/EnchantmentParticle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/hotbar/HotbarListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/hotbar/HotbarListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/ServerSelectorMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/ServerSelectorMenu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/sub/OutfitMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/sub/OutfitMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/sub/ParticlesMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/menu/sub/ParticlesMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/providers/ScoreboardProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/providers/ScoreboardProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/providers/TablistProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/providers/TablistProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/utils/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/me/pi3ro/hub/utils/Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/archive-tmp/ktHub-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/archive-tmp/ktHub-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/hotbar/HotbarListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/hotbar/HotbarListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/providers/ScoreboardProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/providers/ScoreboardProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/providers/TablistProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/pi3ro/hub/providers/TablistProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,24 +53,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Notification.DisplayName-DoNotAsk-Kotlin JPS plugin": "Kotlin JPS plugin",
-    "Notification.DoNotAsk-Kotlin JPS plugin": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/neruPractice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Notification.DisplayName-DoNotAsk-Kotlin JPS plugin&quot;: &quot;Kotlin JPS plugin&quot;,
+    &quot;Notification.DoNotAsk-Kotlin JPS plugin&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/neruPractice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GG" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -108,6 +117,12 @@
       <workItem from="1683484022043" duration="3987000" />
       <workItem from="1683490516204" duration="3181000" />
       <workItem from="1683533078289" duration="724000" />
+      <workItem from="1683534875131" duration="162000" />
+      <workItem from="1683554155903" duration="250000" />
+      <workItem from="1683562195343" duration="2809000" />
+      <workItem from="1683577960860" duration="2146000" />
+      <workItem from="1683636709170" duration="6000" />
+      <workItem from="1683672312714" duration="3178000" />
     </task>
     <task id="LOCAL-00001" summary="[/] asdasd">
       <created>1683305514141</created>
@@ -172,7 +187,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683493298401</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="[+] some outfits">
+      <created>1683534963189</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683534963189</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[+] all outfits">
+      <created>1683579459980</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683579459980</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +228,8 @@
     <MESSAGE value="[+] menus and papi" />
     <MESSAGE value="[+] Outfit Manager &amp; OutfitMenu" />
     <MESSAGE value="[+] Particles Buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="[+] Particles Buttons" />
+    <MESSAGE value="[+] some outfits" />
+    <MESSAGE value="[+] all outfits" />
+    <option name="LAST_COMMIT_MESSAGE" value="[+] all outfits" />
   </component>
 </project>

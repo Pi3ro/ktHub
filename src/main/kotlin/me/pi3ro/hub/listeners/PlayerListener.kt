@@ -1,7 +1,6 @@
 package me.pi3ro.hub.listeners
 
 import me.pi3ro.hub.Hub
-import me.pi3ro.hub.cosmetics.particles.EnchantmentParticle
 import me.pi3ro.hub.utils.CC
 import org.bukkit.Bukkit
 import org.bukkit.GameMode

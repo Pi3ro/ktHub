@@ -2,6 +2,7 @@ package me.pi3ro.hub.menu
 
 import me.pi3ro.hub.utils.CC
 import me.pi3ro.hub.utils.ItemBuilder
+import me.pi3ro.hub.utils.Utils
 import me.pi3ro.hub.utils.menu.Button
 import me.pi3ro.hub.utils.menu.Menu
 import org.bukkit.DyeColor
@@ -38,7 +39,7 @@ class ServerSelectorMenu : Menu() {
     class PracticeButton : Button(){
         override fun getButtonItem(player: Player?): ItemStack {
             val lore = mutableListOf<String>()
-            lore.add("&710 players")
+            lore.add("&7" + Utils.parsePapi(player!!, "%bungee_Practice%") + " players")
             lore.add(" ")
             lore.add("&f● &bSeason X &fstarted &bJune 25th, 2022")
             lore.add("&f● &bMulti-Gamemode Arena PvP")
@@ -54,14 +55,15 @@ class ServerSelectorMenu : Menu() {
 
         override fun clicked(player: Player?, clickType: ClickType?) {
             player?.closeInventory()
-            player?.sendMessage(CC.translate("&aPractice"))
+            player?.sendMessage(CC.translate("&aYou have been added to Practice-Lobby queue!"))
+            Utils.sendServer(player!!, "Practice")
         }
     }
 
     class SoupButton : Button(){
         override fun getButtonItem(player: Player?): ItemStack {
             val lore = mutableListOf<String>()
-            lore.add("&715 players")
+            lore.add("&7" + Utils.parsePapi(player!!, "%bungee_SoupPvP%") + " players")
             lore.add(" ")
             lore.add("&f● &bSeason 5 &fstarted &bMarch 4th, 2022")
             lore.add("&f● &bOpen PvP Arena!")
@@ -74,13 +76,16 @@ class ServerSelectorMenu : Menu() {
         }
 
         override fun clicked(player: Player?, slot: Int, clickType: ClickType?, hotbarSlot: Int) {
+            player?.closeInventory()
+            player?.sendMessage(CC.translate("&aYou have been added to SoupPvP queue!"))
+            Utils.sendServer(player!!, "SoupPvP")
         }
     }
 
     class TeamsButton : Button(){
         override fun getButtonItem(player: Player?): ItemStack {
             val lore = mutableListOf<String>()
-            lore.add("&720 players")
+            lore.add("&7" + Utils.parsePapi(player!!, "%bungee_MCTeams%") + " players")
             lore.add(" ")
             lore.add("&f● &aLite &bMap 3 &fbegins &bMarch 4th")
             lore.add("&f● &bOpen World Survival")
@@ -96,7 +101,9 @@ class ServerSelectorMenu : Menu() {
         }
 
         override fun clicked(player: Player?, clickType: ClickType?) {
-
+            player?.closeInventory()
+            player?.sendMessage(CC.translate("&aYou have been added to MCTeams queue!"))
+            Utils.sendServer(player!!, "MCTeams")
         }
     }
 }

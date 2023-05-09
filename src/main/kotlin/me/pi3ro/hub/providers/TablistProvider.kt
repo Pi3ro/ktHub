@@ -1,5 +1,6 @@
 package me.pi3ro.hub.providers
 
+import me.pi3ro.hub.utils.Utils
 import me.pi3ro.plib.tab.adapter.TabAdapter
 import me.pi3ro.plib.tab.entry.TabEntry
 import org.bukkit.entity.Player
@@ -31,9 +32,9 @@ class TablistProvider : TabAdapter {
         lines.add(TabEntry(1,4,"&fSeason: &b5"))
         lines.add(TabEntry(2,4,"&fMap: &b9"))
 
-        lines.add(TabEntry(0,5,"&fPlayers: &b5"))
-        lines.add(TabEntry(1,5,"&fPlayers: &b10"))
-        lines.add(TabEntry(2,5,"&fPlayers: &b35"))
+        lines.add(TabEntry(0,5,"&fPlayers: &b" + Utils.parsePapi(player!!, "%bungee_Practice%")))
+        lines.add(TabEntry(1,5,"&fPlayers: &b" + Utils.parsePapi(player, "%bungee_SoupPvP%")))
+        lines.add(TabEntry(2,5,"&fPlayers: &b" + Utils.parsePapi(player, "%bungee_MCTeams%")))
         return lines
     }
 }
