@@ -23,6 +23,8 @@ class Hub : JavaPlugin() {
     override fun onEnable() {
         val config = File(dataFolder, "config.yml")
         val papi = if(server.pluginManager.getPlugin("PlaceholderAPI") != null) "&aEnabled" else "&cDisabled"
+        loadListeners()
+        loadProviders()
         if (!config.exists()){
             getConfig().options().copyDefaults(true)
             saveConfig()
@@ -35,17 +37,8 @@ class Hub : JavaPlugin() {
         log("&bPlaceholderAPI: $papi")
         log("===================================")
 
-        scoreboard = Scoreboard(this, ScoreboardProvider())
-        scoreboard!!.ticks = 1
-
-        Tablist(TablistProvider(), this, 20)
-
         getCommand("kthub").executor = HubCommand()
         getCommand("kthub").permission = "kthub.admin"
-        server.pluginManager.registerEvents(Hotbar(), this)
-        server.pluginManager.registerEvents(HotbarListener(), this)
-        server.pluginManager.registerEvents(PlayerListener(), this)
-        server.pluginManager.registerEvents(MenuListener(), this)
     }
 
     override fun onDisable() {
@@ -53,6 +46,22 @@ class Hub : JavaPlugin() {
 
     private fun log(msg: String){
         server.consoleSender.sendMessage(CC.translate(msg))
+    }
+
+    fun loadListeners(){
+        server.pluginManager.registerEvents(Hotbar(), this)
+        server.pluginManager.registerEvents(HotbarListener(), this)
+        server.pluginManager.registerEvents(PlayerListener(), this)
+        server.pluginManager.registerEvents(MenuListener(), this)
+    }
+
+    fun loadProviders(){
+        /* Scoreboard */
+        scoreboard = Scoreboard(this, ScoreboardProvider())
+        scoreboard!!.ticks = 1
+
+        /* Tablist */
+        Tablist(TablistProvider(), this, 20)
     }
 
     companion object {
